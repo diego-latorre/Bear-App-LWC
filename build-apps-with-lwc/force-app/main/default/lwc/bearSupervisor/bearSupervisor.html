@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Supervisor" icon-name="standard:people">
+        <div class="slds-m-around_medium">
+            <!--Show supervisor when Bear is loaded-->
+            <template if:true={bear.data}>
+                <lightning-record-form object-api-name="Contact" record-id={supervisorId} layout-type="Compact"></lightning-record-form>
+            </template>
+
+            <!--Si data falla en cargar-->
+            <template if:true={bear.error}>
+                <div class="slds-text-color_error">
+                    Ocurrio un error cargando los datos
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>
